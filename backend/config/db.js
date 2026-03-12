@@ -1,6 +1,9 @@
-import mongoose from "mongoose"; 
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const connectDB = async () => {
-    await mongoose.connect("mongodb+srv://greatstack:33858627@cluster0.0r0hsyk.mongodb.net/food-del").then(() => console.log("DB Connected"));
+  await mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log("DB Connected"));
 };
- 
